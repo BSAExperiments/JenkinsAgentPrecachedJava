@@ -20,7 +20,7 @@ RUN mkdir -p ~/.gradle \
 
 # This step builds the Terasology engine. As a special step it prepares a "build harness" to build modules standalone
 RUN cd ~/ws \
-    && git clone --depth 1 https://github.com/MovingBlocks/Terasology.git \
+    && git clone --depth 1 https://github.com/MovingBlocks/Terasology.git -b feature/java-17-upgrade \
     && cd Terasology \
     &&  ./gradlew extractNatives extractConfig compileTestJava \
     && mkdir -p ~/ws/harness &&  mkdir -p ~/ws/harness/build-logic/src \
