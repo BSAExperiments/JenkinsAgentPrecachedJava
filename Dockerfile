@@ -12,11 +12,11 @@ RUN mkdir -p ~/.gradle \
 
 # Now grab some source code and run a minimal Gradle build to force fetching of wrappers and any immediate dependencies
 # TODO: This was disabled because it doesn't work under Java 17.
-#RUN cd ~/ws \
-#    && git clone --depth 1 https://github.com/MovingBlocks/joml-ext.git \
-#    && cd joml-ext \
-#    &&  ./gradlew compileTestJava \
-#    && rm -rf ~/ws/joml-ext
+RUN cd ~/ws \
+    && git clone --depth 1 https://github.com/MovingBlocks/joml-ext.git -b gradle-and-artifactory-upgrade \
+    && cd joml-ext \
+    &&  ./gradlew compileTestJava \
+    && rm -rf ~/ws/joml-ext
 
 # This step builds the Terasology engine. As a special step it prepares a "build harness" to build modules standalone
 RUN cd ~/ws \
